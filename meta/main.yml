@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: "Julien DAUPHANT"
+  author: "Sebastien Brousse"
   license: BSD
   min_ansible_version: 1.4
   #

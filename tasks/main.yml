@@ -1,5 +1,5 @@
 ---
-- name: Install needed dependancies
+- name: Install needed dependencies
   action: "{{ ansible_pkg_mgr }} state=present name={{ item }}"
   with_items:
     - tar
@@ -24,17 +24,9 @@
     dest={{intellij_install_dir}}
   tags: ["packages","intellij"]
 
-- name: Retreive intellij dir name
+- name: Retrieve intellij dir name
   command: ls -t {{intellij_install_dir}}
   register: result_intellij_folder_name
-  tags: ["configuration","intellij"]
-
-- name: Ensure intellij is configured
-  template: src=idea.properties.j2 dest={{intellij_install_dir}}/{{intellij_folder_name}}/bin/idea.properties
-  tags: ["configuration","intellij"]
-
-- name: Ensure intellij bin exist
-  template: src=intellij.j2 dest=/usr/bin/intellij mode=755
   tags: ["configuration","intellij"]
 
 - name: Ensure intellij shortcut is present
